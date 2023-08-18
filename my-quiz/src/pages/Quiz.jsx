@@ -6,38 +6,48 @@ const Quiz = () => {
     {
       question: 'How does your skin feel throughout the day?',
       answerOptions: ['Oily and shiny', 'Normal and balanced', 'Dry and tight', 'Sensitive and irritated'],
+      selectedAnswer: ''
     },
     {
       question: 'How often do you have to blot your skin throughout the day?',
       answerOptions: ['Rarely or never', 'Occasionally', 'Frequently', 'Constantly'],
+      selectedAnswer: ''
     },
     {
       question: 'How does your skin react to new products?',
       answerOptions: ['I rarely have any reactions', 'I sometimes get breakouts or irritation', 'I often have reactions to new products'],
+      selectedAnswer: ''
     },
     {
       question: 'What is your skin\'s main concern?',
       answerOptions: ['Oiliness', 'Dryness', 'Acne', 'Sensitivity'],
+      selectedAnswer: ''
     },
     {
       question: 'How does your skin feel after cleansing?',
       answerOptions: ['Tight and dry', 'Comfortable and balanced', 'Oily and greasy', 'Sensitive and irritated'],
+      selectedAnswer: ''
     },
     {
       question: 'How often do you experience breakouts?',
       answerOptions: ['Rarely or never', 'Occasionally', 'Frequently', 'Constantly'],
+      selectedAnswer: ''
     },
     {
       question: 'How does your skin react to the weather?',
       answerOptions: ['It gets oily in hot weather and dry in cold weather', 'It stays pretty much the same regardless of the weather', 'It gets dry in hot weather and oily in cold weather'],
+      selectedAnswer: ''
     },
   ]);
 
   const [answer, setAnswer] = useState('');
 
-  const handleAnswerChange = (e) => {
-    setAnswer(e.target.value);
+  const handleAnswerChange = (e, index) => {
+    const newQuestions = [...questions];
+    newQuestions[index].selectedAnswer = e.target.value;
+    setQuestions(newQuestions);
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
