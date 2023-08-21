@@ -1,10 +1,9 @@
 {
   "name": "my-quiz",
-  "homepage": "https://daisha22d.github.io/py-quiz/",
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "node server.cjs",
+    "start": "vite build && node server.cjs",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
