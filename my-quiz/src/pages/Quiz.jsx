@@ -1,86 +1,98 @@
 import React, { useState } from 'react';
-import "../scss/quiz.scss";
+import '../scss/quiz.scss';
 
-const Quiz = () => {
+const PythonLearningQuiz = () => {
   const [questions, setQuestions] = useState([
     {
-      question: 'How does your skin feel throughout the day?',
-      answerOptions: ['Oily and shiny', 'Normal and balanced', 'Dry and tight', 'Sensitive and irritated'],
+      question: 'What is the primary purpose of Python?',
+      answerOptions: [
+        'Web development',
+        'Data analysis',
+        'Machine learning',
+        'General-purpose programming'
+      ],
+      correctAnswer: 'General-purpose programming',
       selectedAnswer: ''
     },
     {
-      question: 'How often do you have to blot your skin throughout the day?',
-      answerOptions: ['Rarely or never', 'Occasionally', 'Frequently', 'Constantly'],
+      question: 'Which keyword is used to define a function in Python?',
+      answerOptions: ['def', 'function', 'define', 'func'],
+      correctAnswer: 'def',
       selectedAnswer: ''
     },
     {
-      question: 'How does your skin react to new products?',
-      answerOptions: ['I rarely have any reactions', 'I sometimes get breakouts or irritation', 'I often have reactions to new products'],
+      question: 'What is the output of the following code?\nprint(2 + 3 * 4)',
+      answerOptions: ['20', '14', '15', '23'],
+      correctAnswer: '14',
       selectedAnswer: ''
     },
     {
-      question: 'What is your skin\'s main concern?',
-      answerOptions: ['Oiliness', 'Dryness', 'Acne', 'Sensitivity'],
+      question: 'What does the "len()" function do?',
+      answerOptions: [
+        'Converts a value to lowercase',
+        'Returns the square root of a number',
+        'Calculates the length of a string or list',
+        'Generates random numbers'
+      ],
+      correctAnswer: 'Calculates the length of a string or list',
       selectedAnswer: ''
     },
     {
-      question: 'How does your skin feel after cleansing?',
-      answerOptions: ['Tight and dry', 'Comfortable and balanced', 'Oily and greasy', 'Sensitive and irritated'],
+      question: 'Which of the following is NOT a valid Python variable name?',
+      answerOptions: ['my_var', '123var', '_variable', 'variable_name'],
+      correctAnswer: '123var',
       selectedAnswer: ''
     },
     {
-      question: 'How often do you experience breakouts?',
-      answerOptions: ['Rarely or never', 'Occasionally', 'Frequently', 'Constantly'],
+      question: 'Which data type is used to store a sequence of characters?',
+      answerOptions: ['int', 'float', 'str', 'list'],
+      correctAnswer: 'str',
       selectedAnswer: ''
     },
     {
-      question: 'How does your skin react to the weather?',
-      answerOptions: ['It gets oily in hot weather and dry in cold weather', 'It stays pretty much the same regardless of the weather', 'It gets dry in hot weather and oily in cold weather'],
+      question: 'What is the purpose of the "if" statement in Python?',
+      answerOptions: [
+        'To define a function',
+        'To perform arithmetic calculations',
+        'To create a loop',
+        'To make conditional decisions'
+      ],
+      correctAnswer: 'To make conditional decisions',
       selectedAnswer: ''
-    },
-  ]);
+    }
 
-  const [answer, setAnswer] = useState('');
+    
+  ]);
 
   const handleAnswerChange = (e, index) => {
     const newQuestions = [...questions];
     newQuestions[index].selectedAnswer = e.target.value;
     setQuestions(newQuestions);
   };
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // User's skin type based on their answers to the questions.
-    const skinType = {
-      oily: 0,
-      normal: 0,
-      dry: 0,
-      sensitive: 0,
-      combination: 0,
-    };
-
+    let correctCount = 0;
     questions.forEach((question) => {
-      const index = question.answerOptions.indexOf(answer);
-      skinType[question.skinType] += index + 1;
+      if (question.selectedAnswer === question.correctAnswer) {
+        correctCount++;
+      }
     });
 
-    // Determine the user's skin type based on the scores.
-    const maxScore = Math.max(skinType.oily, skinType.normal, skinType.dry, skinType.sensitive, skinType.combination);
-    const skinTypes = Object.keys(skinType);
-    const userSkinType = skinTypes[skinType.indexOf(maxScore)];
-
-    // Display the results.
-    alert(`Your skin type is ${userSkinType}.`);
+    const score = (correctCount / questions.length) * 100;
+    alert(`Your score: ${score.toFixed(2)}%`);
   };
 
   return (
     <div className="quiz-container">
       {questions.map((question, index) => (
         <div key={index}>
-          <h1>{question.question}</h1>
-          <select value={answer} onChange={handleAnswerChange}>
+          <h3>{question.question}</h3>
+          <select
+            value={question.selectedAnswer}
+            onChange={(e) => handleAnswerChange(e, index)}
+          >
             {question.answerOptions.map((answerOption) => (
               <option key={answerOption} value={answerOption}>
                 {answerOption}
@@ -94,6 +106,4 @@ const Quiz = () => {
   );
 };
 
-
-export default Quiz;
-
+export default PythonLearningQuiz;
