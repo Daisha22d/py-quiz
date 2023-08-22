@@ -23,9 +23,9 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^3.2.3",
     "sass": "^1.64.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.9"
   },
   "engines": {
-    "node": "^18.16.0" 
+    "node": "^18.16.0"
   }
 }
