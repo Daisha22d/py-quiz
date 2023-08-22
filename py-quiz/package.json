@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "node server.cjs",
+    "start": "vite",
     "dev": "vite",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
