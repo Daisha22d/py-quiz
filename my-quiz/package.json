@@ -23,8 +23,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^3.2.3",
-    "sass": "^1.64.2",
-    "vite": "^4.4.9"
+    "sass": "^1.64.2"
   },
   "engines": {
     "node": "^18.16.0"
