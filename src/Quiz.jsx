@@ -7,8 +7,8 @@ function Quiz() {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
 
-  const handleAnswer = (answerChoice) => {
-    if (answerChoice.isCorrect) {
+  const handleAnswerButtonClick = (isCorrect) => {
+    if (isCorrect) {
       setScore(score + 1);
     }
 
@@ -39,11 +39,11 @@ function Quiz() {
           <div className="Answer-section">
             {Questions[currentQuestion].answerChoices.map((answerChoice, index) => (
               <button
-                key={index} 
-                onClick={() => handleAnswer(answerChoice)}
+                key={index}
+                onClick={() => handleAnswerButtonClick(answerChoice.isCorrect)}
                 className={answerChoice.isCorrect ? "correct" : "incorrect"}
               >
-                {answerChoice}
+                {answerChoice.answerText}
               </button>
             ))}
           </div>
