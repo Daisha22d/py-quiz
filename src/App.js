@@ -8,10 +8,12 @@ function App() {
       <header className="App-header">
         <h1>PyQuiz</h1>
         <p>
-          A mini quiz to tell your python knowledge!
+          A mini quiz to test your Python knowledge!
         </p>
       </header>
-      <Quiz />
+      <div className="App-content">
+        <Quiz />
+      </div>
     </div>
   );
 }
