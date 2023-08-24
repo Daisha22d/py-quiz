@@ -23,7 +23,7 @@ const Questions = [
     correctAnswer: "int",
   },
   {
-    questions: "What is the correct way to define a comment in Python?",
+    question: "What is the correct way to define a comment in Python?",
     answerChoices: ["#This is a comment", "//This is a comment", "/*This is a comment*/", "/*This is a comment*/"],
     correctAnswer: "#This is a comment",
   },

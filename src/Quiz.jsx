@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./Quiz.css";
-import Questions from "../src/components/Questions"; 
+import Questions from "../src/components/Questions";
+import AnswerChoices from "../src/components/AnswerChoices";
 
 function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
 
-  const handleAnswerButtonClick = (isCorrect) => {
-    if (isCorrect) {
+  const handleAnswerButtonClick = (selectedAnswer) => {
+    const correctAnswer = Questions[currentQuestion].correctAnswer;
+  
+    if (selectedAnswer === correctAnswer) {
       setScore(score + 1);
     }
-
+  
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < Questions.length) {
       setCurrentQuestion(nextQuestion);
@@ -19,6 +22,7 @@ function Quiz() {
       setShowScore(true);
     }
   };
+  
 
   return (
     <div className="Quiz">
@@ -36,17 +40,11 @@ function Quiz() {
               {Questions[currentQuestion].question}
             </div>
           </div>
-          <div className="Answer-section">
-            {Questions[currentQuestion].answerChoices.map((answerChoice, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswerButtonClick(answerChoice.isCorrect)}
-                className={answerChoice.isCorrect ? "correct" : "incorrect"}
-              >
-                {answerChoice.answerText}
-              </button>
-            ))}
-          </div>
+          <AnswerChoices
+            answerChoices={Questions[currentQuestion].answerChoices}
+            handleAnswerButtonClick={handleAnswerButtonClick}
+            currentQuestion={currentQuestion}
+          />
         </>
       )}
     </div>
@@ -54,3 +52,5 @@ function Quiz() {
 }
 
 export default Quiz;
+
+// console.log("Quiz component loaded");
