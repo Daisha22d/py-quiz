@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/py-quiz/static/css/main.ffb25cf9.css",
+    "main.js": "/py-quiz/static/js/main.ddf693f3.js",
+    "index.html": "/py-quiz/index.html",
+    "main.ffb25cf9.css.map": "/py-quiz/static/css/main.ffb25cf9.css.map",
+    "main.ddf693f3.js.map": "/py-quiz/static/js/main.ddf693f3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ffb25cf9.css",
+    "static/js/main.ddf693f3.js"
+  ]
+}
