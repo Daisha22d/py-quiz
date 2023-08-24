@@ -1,6 +1,6 @@
 # Python Quiz App
 
-![Screenshot 2023-08-24 at 11 32 56 AM](https://github.com/Daisha22d/py-quiz/assets/121315417/f0acb7dc-d352-456b-b815-e04ba3e8d1f7) 
+![PyQuiz](https://github.com/Daisha22d/py-quiz/assets/121315417/f0acb7dc-d352-456b-b815-e04ba3e8d1f7) 
 
 Test your beginner-level knowledge of Python with this mini quiz app built using React. This app presents you with a set of 10 multiple-choice questions about Python programming. Choose the correct answer for each question and see your score at the end!
 
